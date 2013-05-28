@@ -57,7 +57,7 @@ void switchkeygen(fmpz_poly_mat_t mapb, fmpz_poly_mat_t s1, fmpz_poly_mat_t s2, 
 void scale(fmpz_poly_mat_t c2, fmpz_poly_mat_t c1, fmpz_t qq, fmpz_t pp);
 void switchkey(fmpz_poly_mat_t c3, fmpz_poly_mat_t mapb, fmpz_poly_mat_t c1, fmpz_t qq, fmpz_poly_t fx, long d);
 void hcrypt_bgv_refresh(fmpz_poly_mat_t c3, fmpz_poly_mat_t c, fmpz_poly_mat_t map, fmpz_t qq, fmpz_t pp, fmpz_poly_t fx, long d);
-param_node_t *e_setup(long miu, long lamda, long b, param_node_t *param);
+param_node_t *e_setup(long miu, long lamda, param_node_t *param);
 void e_skeygen(fmpz_poly_mat_t sk, param_node_t *param, long d);
 void e_pkeygen(fmpz_poly_mat_t pk, param_node_t *param, fmpz_poly_mat_t sk, long d,  fmpz_poly_t fx);
 void e_encrypt(fmpz_poly_mat_t ct, param_node_t *param, fmpz_poly_mat_t pk, fmpz_poly_t ms, fmpz_poly_t fx, long d);

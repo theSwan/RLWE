@@ -11,29 +11,14 @@
 #include "flint/fmpz_mat.h"
 #include "libbgv.h"
 
-param_node_t *e_setup(long miu, long lamda, long b, param_node_t *param)
+param_node_t *e_setup(long miu, long lamda, param_node_t *param)
 {
         param = param_node_init(param);
 	gen_q(param->q, miu);
-	fmpz_t tmp;
-	fmpz_init(tmp);
-	fmpz_fdiv_q_si(tmp, param->q, bgv_get_bigb());
-	long prod, mi;
-	prod = lamda * fmpz_flog_ui(tmp, 2);
-        fmpz_set_si(tmp, prod);
-        mi = fmpz_flog_ui(tmp, 2);
-        
-        prod = pow(2, mi);
-	if(b == 1) {
-		param->n = prod;
-	}  /* LWE */
-	else {
-		param->n = 1;
-	} /* RLWE */
+        param->n = 1;
         
 	param->bign = ceil((2 * param->n + 1) * fmpz_flog_ui(param->q, 2));
         
-	fmpz_clear(tmp);
 	return param;
 }
 
